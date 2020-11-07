@@ -1,5 +1,7 @@
 package com.company;
 //1453 pbinfo
+
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Main {
@@ -8,25 +10,16 @@ public class Main {
         System.out.print("n= ");
         Scanner scanner = new Scanner(System.in);
         int n = scanner.nextInt();
-        int arr[] = new int[n];
-        int c = 0;
-        boolean found=false;
+        ArrayList<Integer> lista = new ArrayList<>();
         for (int i = 1; i <= n; i++) {
             System.out.println("arr[" + i + "]= ");
             int nr = scanner.nextInt();
-            arr[i] = nr;
+            lista.add(nr);
         }
         for (int i = 1; i <= n; i++) {
-            if (arr[i] % 2 == 0) {
-                c++;
-                found=true;
-            }
-            if(found==true){
-                for (int j = i; j <= n; j++)
-                    arr[j] = arr[j + 1];
-            }
+            if (lista.get(i) % 2 == 0)
+                lista.remove(lista.get(i));
         }
-        for (int i = 1; i <= n - c; i++)
-            System.out.println(arr[i] + " ");
+        System.out.println(lista);
     }
 }
