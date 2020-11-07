@@ -10,16 +10,21 @@ public class Main {
         int n = scanner.nextInt();
         int arr[] = new int[n];
         int c = 0;
+        boolean found=false;
         for (int i = 1; i <= n; i++) {
             System.out.println("arr[" + i + "]= ");
             int nr = scanner.nextInt();
             arr[i] = nr;
         }
         for (int i = 1; i <= n; i++) {
-            if (arr[i] % 2 == 0)
+            if (arr[i] % 2 == 0) {
                 c++;
-            for (int j = i; j <= n; j++)
-                arr[j] = arr[j + 1];
+                found=true;
+            }
+            if(found==true){
+                for (int j = i; j <= n; j++)
+                    arr[j] = arr[j + 1];
+            }
         }
         for (int i = 1; i <= n - c; i++)
             System.out.println(arr[i] + " ");
